@@ -4,7 +4,7 @@
     <title>Ireland SHC-PMS</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!-- prevents cross-site request forgery (CSRF) -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -14,16 +14,18 @@
         <%= link_to "sample app", '#', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
-            <li><%= link_to "Help",   '#' %></li>
-            <li><%= link_to "Log in", '#' %></li>
+            <li><%= link_to "Home",   '' %></li>
+            <li><%= link_to "Help",   'help' %></li>
+            <li><%= link_to "About", 'static_pages/about'%></li>
+            <li><%= link_to "Contact", 'static_pages/contact'%></li>
+            <li><%= link_to "Log in", 'static_pages/login' %></li>
           </ul>
         </nav>
       </div>
     </header>
     <div class="container">
     
-    <%= yield %>
+    <%= yield %> <!-- responsible for inserting the contents of each page into the layout
     </div>
   </body>
 </html>
