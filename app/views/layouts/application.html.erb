@@ -14,7 +14,7 @@
         <%= link_to "sample app", '#', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '' %></li>
+            <li><a href="#">Home</a></li>
             <li><%= link_to "Help",   'help' %></li>
             <li><%= link_to "About", 'static_pages/about'%></li>
             <li><%= link_to "Contact", 'static_pages/contact'%></li>
@@ -25,7 +25,7 @@
     </header>
     <div class="container">
     
-    <%= yield %> <!-- responsible for inserting the contents of each page into the layout
+    <%= yield %> <!-- responsible for inserting the contents of each page into the layout-->
     </div>
   </body>
 </html>
