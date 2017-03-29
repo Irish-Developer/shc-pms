@@ -31,4 +31,18 @@ class DoctorTest < ActiveSupport::TestCase
     @doctor.email = "a" * 244 + "@example.com"
     assert_not @doctor.valid?
   end
+  test "email validation should reject invalid addresses" do
+    invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
+                           foo@bar_baz.com foo@bar+baz.com foo@bar..com]
+    invalid_addresses.each do |invalid_address|
+      @doctor.email = invalid_address
+      assert_not @doctor.valid?, "#{invalid_address.inspect} should be invalid"
+  end
+  test "email addresses has to be unique" do
+      duplicate_doctor = @doctor.
+      duplicate_doctor.email = @doctor.email.upcase
+      @doctor.save
+      assert_not duplicate_doctor.valid?
+  end
+  end
 end
