@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class DoctorTest < ActiveSupport::TestCase
+  
   def setup
-    @doctor = Doctor.new(fname: "Example", lname: "Doctor", email: "user@example.com")
+    @doctor = Doctor.new(fname: "Example", lname: "User", email: "user@example.com",
+                     password: "123hello", password_confirmation: "123hello")
   end
   test "should be valid" do
     assert @doctor.valid?
@@ -43,6 +45,21 @@ class DoctorTest < ActiveSupport::TestCase
       duplicate_doctor.email = @doctor.email.upcase
       @doctor.save
       assert_not duplicate_doctor.valid?
+  end
+  test "email addresses should be saved as lower-case" do
+    mixed_case_email = "Foo@ExAMPle.CoM"
+    @user.email = mixed_case_email
+    @user.save
+    assert_equal mixed_case_email.downcase, @user.reload.email
+  end
+  test "password should be present (nonblank)" do
+    @doctor.password = @doctor.password_confirmation = " " * 6
+    assert_not @doctor.valid?
+  end
+
+  test "password should have a minimum length" do
+    @doctor.password = @doctor.password_confirmation = "a" * 5
+    assert_not @doctor.valid?
   end
   end
 end
