@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170329203144) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.index ["email"], name: "index_doctors_on_email", unique: true
   end
 
 end
