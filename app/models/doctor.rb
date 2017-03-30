@@ -9,4 +9,11 @@ class Doctor < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  
+  #digest method for use in fixtures
+  def Doctor.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end

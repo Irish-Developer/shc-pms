@@ -12,6 +12,7 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(user_params)    
     if @doctor.save
+      log_in @doctor
       flash[:success] = "Welcome Doctor!"
       redirect_to @doctor #redirecting to the newly created user’s profile
       
