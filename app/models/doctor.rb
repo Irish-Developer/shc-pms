@@ -8,7 +8,7 @@ class Doctor < ApplicationRecord
   uniqueness: {case_sensitive: false}
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
   #digest method for use in fixtures
   def Doctor.digest(string)

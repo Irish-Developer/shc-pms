@@ -24,7 +24,8 @@ class DoctorsController < ApplicationController
   def update
     @doctor = Doctor.find(params[:id])
     if @doctor.update_attributes(doctor_params)
-      # Handle a successful update.
+      flash[:success] = "Profile is updated"
+      redirect_to @doctor
     else
       render 'edit'
     end

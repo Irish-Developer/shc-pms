@@ -70,8 +70,13 @@ p {
 }
 
 #logo:hover {
-  color: #fff;
+  color: #800000;
   text-decoration: none;
+}
+
+.header {
+  display: block;
+  background-color: #008080;
 }
 
 /* footer */
@@ -150,6 +155,7 @@ aside {
   float: left;
   margin-right: 10px;
 }
+
 /* For signup text fields */
 
 input, textarea, select, .uneditable-input {
