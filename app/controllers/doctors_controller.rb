@@ -1,4 +1,6 @@
 class DoctorsController < ApplicationController
+  before_action :logged_in_doctor, only: [:edit, :update]
+  before_action :correct_doctor,   only: [:edit, :update]
   
   #display doctor info
   def show
@@ -10,15 +12,16 @@ class DoctorsController < ApplicationController
   
   #create account or register
   def create
-    @doctor = Doctor.new(doctor_params)    
-    if @doctor.save
-      log_in @doctor
-      flash[:success] = "Welcome Doctor!"
-      redirect_to @doctor #redirecting to the newly created user’s profile
-      
+    doctor = Doctor.find_by(email: params[:session][:email].downcase)
+    if doctor && doctor.authenticate(params[:session][:password])
+      log_in doctor
+      params[:session][:remember_me] == '1' ? remember(doctor) : forget(doctor)
+      redirect_back_or doctor
     else
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
-    end
+    end      
+    
   end
   
   def update
@@ -37,7 +40,22 @@ class DoctorsController < ApplicationController
   
   private
     def doctor_params
-      params.require(:doctor).permit(:fname, :lname, :email, :password,
-                                   :password_confirmation)
+      params.require(:doctor).permit(:fname, :lname, :email, :password, :password_confirmation)
+    end
+    
+    # Confirms a logged-in user.
+    def logged_in_doctor
+      unless logged_in?
+      store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    
+    # Confirms that the current user is a doctor.
+    def correct_doctor
+      @doctor = Doctor.find(params[:id])
+      redirect_to(root_url) unless current_doctor?(@doctor)
     end
 end
+    
