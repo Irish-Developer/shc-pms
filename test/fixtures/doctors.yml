@@ -7,6 +7,7 @@ youcef:
   password_digest: <%= Doctor.digest('password') %>
 
 archer:
-  name: Sterling Archer
+  fname: Sterling 
+  lname: Archer
   email: duchess@example.gov
   password_digest: <%= Doctor.digest('password') %>
