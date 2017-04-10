@@ -1,7 +1,7 @@
 <!--This html code is used to display the Doctors page-->
 <% provide(:title, 'All doctors') %>
 <h1>All Doctors</h1>
-
+<%= will_paginate %>
 <ul class="list_css">
   <!--Get doctors-->
   <% @doctors.each do |doctor| %>
@@ -9,6 +9,11 @@
       <!--Display doctors image and name-->
       <%= gravatar_for doctor, size: 50 %>
       <%= link_to doctor.fname, doctor %>
+      <% if current_doctor.admin? && !current_doctor?(doctor) %>
+    | <%= link_to "Delete", doctor, method: :delete, data: { confirm: "Caution! Are you sure you want to delete?" } %>
+  <% end %>
     </li>
   <% end %>
-</ul
+</ul>
+
+<%= will_paginate %>

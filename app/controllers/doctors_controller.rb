@@ -1,10 +1,10 @@
 class DoctorsController < ApplicationController
-  before_action :logged_in_doctor, only: [:index, :edit, :update,]
+  before_action :logged_in_doctor, only: [:index, :edit, :update, :destroy]
   before_action :correct_doctor,   only: [:edit, :update,]
   
 
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.paginate(page: params[:page])
   end
   
   
@@ -55,6 +55,13 @@ class DoctorsController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  # Delete the doctor
+  def destroy
+    Doctor.find(params[:id]).destroy
+    flash[:success] = "Doctor deleted"
+    redirect_to doctors_url
   end
   
   private

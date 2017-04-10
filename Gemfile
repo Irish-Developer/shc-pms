@@ -12,6 +12,9 @@ gem 'rails', '~> 5.0.1'
 gem 'bcrypt', '3.1.11'
 #To produce mock or fake data
 gem 'faker', '1.6.6'
+#breaks up the lists of doctors, patients and clinics into pages
+gem 'will_paginate',           '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'
 # Adding bootstrap files (sass)
 gem 'bootstrap-sass', '3.3.6'
 # Use sqlite3 as the database for Active Record
