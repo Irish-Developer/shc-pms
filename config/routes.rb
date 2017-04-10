@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :patients
+  
+  get '/patients', to:'patients#pat_index'
+
   get 'sessions/new'
 
   get 'doctors/show'
