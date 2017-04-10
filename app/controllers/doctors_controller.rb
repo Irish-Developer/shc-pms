@@ -35,8 +35,9 @@ class DoctorsController < ApplicationController
   def create #take the edit form input variables of the doctor id and check that the parmaters are a match with the databases
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      flash[:success] = "Profile is updated"
-      redirect_to @doctor
+      log_in @doctor
+      flash[:success] = "Welcome to Irish Smart Health Care"
+      redirect_to @doctor 
     else
       render 'new'
     end
@@ -65,7 +66,7 @@ class DoctorsController < ApplicationController
     def logged_in_doctor
       unless logged_in?
       store_location
-        flash[:danger] = "Please log in."
+        flash[:danger] = "Please Sign In."
         redirect_to login_url
       end
     end

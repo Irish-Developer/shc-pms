@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     doctor = Doctor.find_by(email: params[:session][:email].downcase)
-    if doctor && doctor.authenticate(params[:session][:password]) #checks to see if user is valid- && is a logical and
+    if doctor && doctor.authenticate(params[:session][:password]) #checks to see if the doctor is valid- && is a logical and
       log_in doctor
       redirect_to doctor
     else

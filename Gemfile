@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.0.1'
 #Adding bcryt to encrypt stored passwords
 gem 'bcrypt', '3.1.11'
+#To produce mock or fake data
+gem 'faker', '1.6.6'
 # Adding bootstrap files (sass)
 gem 'bootstrap-sass', '3.3.6'
 # Use sqlite3 as the database for Active Record
