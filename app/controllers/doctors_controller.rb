@@ -18,20 +18,6 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.new
   end
   
-  # #create account or register
-  # def create
-  #   doctor = Doctor.find_by(email: params[:session][:email].downcase)
-  #   if doctor && doctor.authenticate(params[:session][:password])
-  #     log_in doctor
-  #     params[:session][:remember_me] == '1' ? remember(doctor) : forget(doctor)
-  #     redirect_back_or doctor
-  #   else
-  #     flash.now[:danger] = 'Invalid email/password combination'
-  #     render 'new'
-  #   end      
-    
-  # end
-  
   def create #take the edit form input variables of the doctor id and check that the parmaters are a match with the databases
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
@@ -78,7 +64,7 @@ class DoctorsController < ApplicationController
       end
     end
     
-    # Confirms that the current user is a doctor.
+    # Confirms that the current user is a doctor and lets them to proceed
     def correct_doctor
       @doctor = Doctor.find(params[:id])
       redirect_to(root_url) unless current_doctor?(@doctor)
