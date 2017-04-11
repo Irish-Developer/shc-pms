@@ -15,5 +15,5 @@
       <%= f.label :phone, "Phone number" %>
       <%= f.text_field :phone, class: 'form-control' %>
 
-      <%= f.submit "Add Patient", class: "btn btn-primary" %>
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

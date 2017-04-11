@@ -1,10 +1,12 @@
 <% provide(:title, 'Add Patient') %>
-<% provide(:button_text, 'Create my account') %>
+<% provide(:button_text, 'Add New Patient') %>
 <h1Add Patient Here</h1>
 <p>Add new patient details here!</p>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= render 'patientform' %> <!-- pulls the _patient-form.html -->
+    <p></p>
+    <%= link_to "Back", patients_url, class: "btn btn-info" %>
   </div>
 </div>

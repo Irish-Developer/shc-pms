@@ -8,7 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
-#Adding bcryt to encrypt stored passwords
+#Adding bcryt to encrypt stored passwords -  ActiveModel has_secure_password
 gem 'bcrypt', '3.1.11'
 #To produce mock or fake data
 gem 'faker', '1.6.6'
@@ -19,9 +19,6 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'simple_form', '~> 3.4'
 # Adding bootstrap files (sass)
 gem 'bootstrap-sass', '3.3.6'
-# Use sqlite3 as the database for Active Record
-# Heroku does not suport SQLite
-# gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -39,13 +36,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   gem 'sqlite3', '1.3.12'

@@ -2,7 +2,9 @@
 <% provide(:title, 'All patients') %>
 <h1>All Patients</h1>
 
+<%= link_to "Add Patient", new_patient_path,class: "btn btn-info" %>
+
 <% @patients.each do |patient| %>
 
-  <%= link_to patient.name, patient %>
+ <h2> <%= link_to patient.name, patient_path(patient) %> </h2>
 <% end %>
