@@ -1,0 +1,19 @@
+<%= form_for(@patient) do |f| %>
+    <%= render 'error_message', object: @patient %>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :dob, "Date of Birth" %>
+      <%= f.date_select :dob, :start_year=>1900 %>
+
+      <%= f.label :address1, "Address Line 1" %>
+      <%= f.text_field :address1, class: 'form-control' %>
+
+      <%= f.label :address2, "Address Line 2" %>
+      <%= f.text_field :address2, class: 'form-control' %>
+
+      <%= f.label :phone, "Phone number" %>
+      <%= f.text_field :phone, class: 'form-control' %>
+
+      <%= f.submit "Add Patient", class: "btn btn-primary" %>
+<% end %>

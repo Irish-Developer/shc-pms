@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :patients
   
-  get '/patients', to:'patients#pat_index'
+  get 'patients/new'
 
   get 'sessions/new'
 
