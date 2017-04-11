@@ -2,11 +2,7 @@
 <% provide(:title, 'All patients') %>
 <h1>All Patients</h1>
 
-<ul class="list_css">
-  <!--Get doctors-->
-  
-    <li>
- 
-    </li>
-  <% end %>
-</ul>
+<% @patients.each do |patient| %>
+
+  <%= link_to patient.name, patient %>
+<% end %>
