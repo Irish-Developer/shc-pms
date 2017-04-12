@@ -15,9 +15,9 @@
   <p><font size="3" color="green"><u><%= @patient.doctor_id %></font></u> </p>
   
   <h3> Current Condition: </h3>
-  <p><font size="3" color="green"><u><%= @patient.condition %></font></u> </p>
+  <p><font size="4" color="green"><u><%= @patient.condition.name %></font></u> </p>
 <p></p>
-<p></p>
+<br>
 <%= link_to "Back", patients_url, class: "btn btn-info"%> |
 <%= link_to "Edit", edit_patient_path(@patient), class: "btn btn-warning" %> |
 <%= link_to "Delete", patient_path(@patient), method: :delete, data: {confirm: "Are you sure?"},class: "btn btn-danger"%>

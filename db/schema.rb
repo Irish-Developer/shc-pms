@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411231030) do
+ActiveRecord::Schema.define(version: 20170412132611) do
 
   create_table "conditions", force: :cascade do |t|
-    t.string   "type"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,10 +35,11 @@ ActiveRecord::Schema.define(version: 20170411231030) do
     t.string   "address1"
     t.string   "address2"
     t.string   "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "con"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "doctor_id"
-    t.string   "condition"
+    t.integer  "condition_id"
   end
 
 end

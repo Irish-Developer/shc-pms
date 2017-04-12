@@ -10,10 +10,13 @@ class PatientsController < ApplicationController
   
   def new
     @patient = current_doctor.patients.build
+    #this create an array that store patient conition in order to be displayed in dropdown option
+    @conditions = Condition.all.map{ |c| [c.name, c.id]} 
   end
   
   def create
     @patient = current_doctor.patients.build(patient_params)
+    @patient.condition_id = params[:condition_id]
     
     if @patient.save
       flash[:success] = "Patient Added Successfully"
@@ -24,9 +27,11 @@ class PatientsController < ApplicationController
   end
   
   def edit
+     @conditions = Condition.all.map{ |c| [c.name, c.id]}
   end
   
   def update
+    @patient.condition_id = params[:condition_id]
     if @patient.update(patient_params)
       flash[:success] = "Patient profile updated"
       redirect_to patient_path(@patient)
@@ -45,7 +50,7 @@ class PatientsController < ApplicationController
   private
   
     def patient_params
-      params.require(:patient).permit(:name, :dob, :address1, :address2, :phone)
+      params.require(:patient).permit(:name, :dob, :address1, :address2, :phone, :condition_id)
     end
     
     def find_patient
