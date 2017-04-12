@@ -6,28 +6,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
   
-      <%= form_for(@patient) do |f| %>
-    <%= render 'error_message', object: @patient %>
-      <!--Displays types of conditions in a dropdown-->
-      <%= select_tag(:condition_id, options_for_select(@conditions), :prompt => "Select Condition")%>
-    
-      <%= f.label :name, "Name" %>
-      <%= f.text_field :name, class: 'form-control' %>
-      
-      <%= f.label :dob, "Date of Birth" %>
-      <%= f.date_select :dob, :start_year=>1900 %>
-
-      <%= f.label :address1, "Address Line 1" %>
-      <%= f.text_field :address1, class: 'form-control' %>
-
-      <%= f.label :address2, "Address Line 2" %>
-      <%= f.text_field :address2, class: 'form-control' %>
-
-      <%= f.label :phone, "Phone number" %>
-      <%= f.text_field :phone, class: 'form-control' %>
-
-      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-<% end %>
+      <%= render 'patientform' %>
       <p></p>
       
       <%= link_to "Back", patient_path, class: "btn btn-info"%>

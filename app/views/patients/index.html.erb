@@ -3,8 +3,21 @@
 <h1>All Patients</h1>
 
 <%= link_to "Add Patient", new_patient_path,class: "btn btn-info" %>
+<br>
 
-<% @patients.each do |patient| %>
-
+    <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                 role="button" aria-expanded="false">Conditions <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <%= Condition.all.each do |condition| %>
+                          <li>
+                              <%= link_to condition.name, patients_path(condition: condition.name), class: "link"%>
+                          </li>
+                        <% end%>
+                    </ul>
+              </li>
+    
+      <% @patients.each do |patient| %>
+  
  <h2> <%= link_to patient.name, patient_path(patient) %> </h2>
 <% end %>

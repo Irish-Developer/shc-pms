@@ -2,7 +2,12 @@ class PatientsController < ApplicationController
   before_action :find_patient, only: [:show, :edit, :update, :destroy]
   
   def index
-    @patients = Patient.all.order("created_at DESC")
+      if params[:condition].blank?
+      @patients = Patient.all.order("created_at DESC")
+    else
+      @condition_id = Condition.find_by(name: params[:condition]).id
+      @patients = Patient.where(:condition_id => @condition_id).order("created_at DESC")
+      end
   end
   
   def show 
@@ -31,7 +36,6 @@ class PatientsController < ApplicationController
   end
   
   def update
-    @patient.condition_id = params[:condition_id]
     if @patient.update(patient_params)
       flash[:success] = "Patient profile updated"
       redirect_to patient_path(@patient)
