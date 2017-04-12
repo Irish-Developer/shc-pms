@@ -1,23 +1,29 @@
 <!--This html code is used to display the Doctors page-->
 <% provide(:title, 'All patients') %>
-<h1>All Patients</h1>
+<h1>Patients</h1>
 
-<%= link_to "Add Patient", new_patient_path,class: "btn btn-info" %>
-<br>
+      <%= link_to "Add Patient", new_patient_path,class: "btn btn-success" %>
+      <br></br>
 
-    <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
-                 role="button" aria-expanded="false">Conditions <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <%= Condition.all.each do |condition| %>
-                          <li>
-                              <%= link_to condition.name, patients_path(condition: condition.name), class: "link"%>
-                          </li>
-                        <% end%>
-                    </ul>
-              </li>
-    
+
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+           role="button">Patient Conditions <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <%= Condition.all.each do |condition| %>
+                  <li>
+                    <%= link_to condition.name, patients_path(condition: condition.name), class: "link"%>
+                  </li>
+                <% end%>
+              </ul>
+      </li>
+      <li><%= link_to "All Patients", patients_path %></li>
+      <br>
+              
+      <h5 class="current-condition"><%= params[:condition] %></h5>
+              
       <% @patients.each do |patient| %>
   
  <h2> <%= link_to patient.name, patient_path(patient) %> </h2>
 <% end %>
+

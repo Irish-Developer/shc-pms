@@ -51,6 +51,25 @@ h2 {
   color: #777;
 }
 
+h3{
+  font-size: 2;
+  letter-spacing: -1px;
+  margin-bottom: 15px;
+  text-align: left;
+  font-weight: normal;
+  color: #777;
+  
+}
+h5{
+  font-size: 3em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #008080;
+  
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -194,4 +213,14 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.navbar .nav > li > a {
+    float: none;
+    color: #ffffff;
+}
+.navbar .nav > li > a:hover {
+    float: none;
+    color: black;
+    background-color: #4DB6AC;
 }
