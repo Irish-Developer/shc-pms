@@ -19,11 +19,14 @@
       </li>
       <li><%= link_to "All Patients", patients_path %></li>
       <br>
-              
+      
+      <!--Heading for selected condition list-->
       <h5 class="current-condition"><%= params[:condition] %></h5>
-              
-      <% @patients.each do |patient| %>
-  
- <h2> <%= link_to patient.name, patient_path(patient) %> </h2>
-<% end %>
-
+        <% if @patients.count == 0 %>
+          <h1>There are currently no patients in this condition.</h1>
+        <%else%>
+          <!--Display message if there are no patients under in this condition or else display patients-->
+          <% @patients.each do |patient| %>
+            <h2> <%= link_to patient.name, patient_path(patient) %> </h2>
+        <% end %>
+  <% end %>
