@@ -2,6 +2,7 @@ class PatientsController < ApplicationController
   before_action :find_patient, only: [:show, :edit, :update, :destroy]
   
   def index
+      @patients = Patient.paginate(page: params[:page])
       if params[:condition].blank?                      #If no pation condition is selected 
       @patients = Patient.all.order("created_at DESC")  #then show all patients in order of time created
     else
@@ -55,7 +56,7 @@ class PatientsController < ApplicationController
   private
   
     def patient_params
-      params.require(:patient).permit(:name, :dob, :address1, :address2, :phone, :condition_id)
+      params.require(:patient).permit(:name, :dob, :address1, :address2, :phone, :condition_id, :p_email)
     end
     
     def find_patient

@@ -21,12 +21,15 @@
       
       <!--Heading for selected clinic list-->
       <h5 class="current-clinic"><%= params[:clinic] %></h5>
+        <ul class="list_css">
         <!--Display message if there are no appointments under in this condition or else display appointments-->
         <% if @appointments.count == 0 %>
           <h1>There are currently no appointments made for this clinic.</h1>
         <%else%>
 
           <% @appointments.each do |appointment| %>
-            <h2> <%= link_to appointment.id, appointment_path(appointment) %> </h2>
+            <h3> <%= appointment.id %> - <%= link_to appointment.clinic.name, appointment_path(appointment) %> </h3>
         <% end %>
+        </ul>
+       
   <% end %>

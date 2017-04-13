@@ -2,6 +2,7 @@ class AppointmentsController < ApplicationController
   before_action :find_appointment, only: [:show, :edit, :update, :destroy]
   
   def index
+    @appointments = Appointment.paginate(page: params[:page])
       if params[:clinic].blank?                                 #If no clinic is selected 
       @appointments = Appointment.all.order("created_at DESC")  #then show all patients in order of time created
     else
@@ -59,7 +60,7 @@ class AppointmentsController < ApplicationController
   private
   
     def appointment_params
-      params.require(:appointment).permit(:time, :date, :condition_id, :patient_id, :doctor_id, :clinic_id, :msg)
+      params.require(:appointment).permit(:time, :date, :condition_id, :patient_id, :doctor_id, :clinic_id, :msg, :p_email)
     end
     
     def find_appointment
