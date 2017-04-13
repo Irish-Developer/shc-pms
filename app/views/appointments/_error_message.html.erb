@@ -1,0 +1,13 @@
+<% if @appointment.errors.any? %>
+<!-- This file is used to display and point out errors with forms-->
+  <div id="error"> <!--calls the error div. Used to higlight errors in red-->
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@appointment.errors.count, "error") %>. <!--Counts how many errors there are with the form--> 
+    </div>
+    <ul>
+    <% @appointment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

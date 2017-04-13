@@ -1,0 +1,12 @@
+<% provide(:title, 'Create an appointment') %>
+<% provide(:button_text, 'Create Appointment') %>
+<h1>Make Appointments</h1>
+<h2>Create a new appointment with any clinic or hospital in Irieland</h2>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'appointform' %> <!-- pulls the _apointform.html -->
+    <p></p>
+    <%= link_to "Back", appointments_url, class: "btn btn-info" %>
+  </div>
+</div>

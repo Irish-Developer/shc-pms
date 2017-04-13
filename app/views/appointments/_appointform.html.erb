@@ -1,0 +1,19 @@
+<%= form_for(@appointment) do |f| %>
+    <%= render 'error_message', object: @appointment %>
+      
+      <!--Displays types of conditions in a dropdown-->
+      <%= select_tag(:clinic_id, options_for_select(@clinics), :prompt => "Select Clinic")%>
+      <%= select_tag(:condition_id, options_for_select(@conditions), :prompt => "Select Condition")%>
+    
+      <%= f.label :patient_id, "Patient ID" %>
+      <%= f.text_field :patient_id, class: 'form-control' %>
+      
+      <%= f.label :date, "Date of Birth" %>
+      <%= f.date_field :date, :start_year=>1900 %>
+      
+      <%= f.label :time, "Time" %>
+      <%= f.time_field :time %>
+
+
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

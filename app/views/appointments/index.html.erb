@@ -1,0 +1,32 @@
+<% provide(:title, 'All appointments') %>
+<h1>Appointments</h1>
+
+<%= link_to "Make an Appointment", new_appointment_path,class: "btn btn-success" %>
+      <br></br>
+
+
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+           role="button">Select Clinic <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <%= Clinic.all.each do |clinic| %>
+                  <li>
+                    <%= link_to clinic.name, appointments_path(clinic: clinic.name), class: "link"%>
+                  </li>
+                <% end%>
+              </ul>
+      </li>
+      <li><%= link_to "All Appointments", appointments_path %></li>
+      <br>
+      
+      <!--Heading for selected clinic list-->
+      <h5 class="current-clinic"><%= params[:clinic] %></h5>
+        <!--Display message if there are no appointments under in this condition or else display appointments-->
+        <% if @appointments.count == 0 %>
+          <h1>There are currently no appointments made for this clinic.</h1>
+        <%else%>
+
+          <% @appointments.each do |appointment| %>
+            <h2> <%= link_to appointment.id, appointment_path(appointment) %> </h2>
+        <% end %>
+  <% end %>
