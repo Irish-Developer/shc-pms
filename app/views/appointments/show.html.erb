@@ -1,0 +1,23 @@
+
+<h1> <%= @appointment.clinic.name %> Appointment</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      
+        <h3> Prefered Date: <font size="4" color="green"><%= @appointment.date %></font> </h3>
+          
+        <h3>Patients Name: <font size="4" color="green"><%= @appointment.patient.name %></font></h3>
+         
+        <h3> patients Condition: <font size="4" color="green"><%= @appointment.condition.name %></font></h3>
+          
+        <h3> GP Information: <font size="4" color="green">Name: <%= @appointment.doctor.fname %> <%= @appointment.doctor.lname %>, ID: <%= @appointment.doctor_id %></font</h3>
+          
+        <h3> Request: </h3>
+        <font size="4" color="black"><%= @appointment.msg %></font>
+          
+        <p></p>
+        <br>
+        <%= link_to "Edit", edit_appointment_path(@appointment), class: "btn btn-warning" %> |
+        <%= link_to "Delete", appointment_path(@appointment), method: :delete, data: {confirm: "Are you sure?"},class: "btn btn-danger"%>
+    </div>
+  </div>

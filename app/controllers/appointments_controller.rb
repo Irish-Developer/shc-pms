@@ -59,10 +59,10 @@ class AppointmentsController < ApplicationController
   private
   
     def appointment_params
-      params.require(:appointment).permit(:time, :date, :condition_id, :patient_id, :doctor_id, :clinic_id)
+      params.require(:appointment).permit(:time, :date, :condition_id, :patient_id, :doctor_id, :clinic_id, :msg)
     end
     
-    def find_patient
+    def find_appointment
       @appointment = Appointment.find(params[:id])
     end
   
