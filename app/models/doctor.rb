@@ -1,5 +1,8 @@
 class Doctor < ApplicationRecord
   has_many :patients
+  has_many :appointments
+
+  
   
   
   before_save { email.downcase! }                                         #sets the user’s email address to a lower-case version of its current value using the downcase string method
