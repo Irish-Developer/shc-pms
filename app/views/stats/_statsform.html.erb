@@ -1,0 +1,12 @@
+<!--This HTML code is used to create a form that allows a doctor to-->
+<!--create a new Patient Status-->
+
+<%= simple_form_for ([@patient, @patient.stats.build]) do |f| %>
+ 
+  
+  <%= f.input :comment%>
+  
+  
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  
+<% end %>

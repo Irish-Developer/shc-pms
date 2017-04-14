@@ -1,0 +1,20 @@
+<div class="review">
+
+      
+        <p4>  Dr <%= stat.doctor.fname %> <%= stat.doctor.lname %>: <%= stat.doctor.email %></p4>
+        
+        <p class="review-comment"> <%= stat.comment %></p>
+        
+        <p3> <%= stat.created_at %></p3>
+        
+          <div class="links btn-group">
+      
+              <!--Each patient status post has an edit and delete option-->
+              <%= link_to "Edit", edit_patient_stat_path(stat.patient, stat) %> | 
+              
+              <%= link_to "Delete", patient_stat_path(stat.patient, stat), method: :delete,
+              data: {confirm: "Are you sure you want to delete?"}%>
+         
+          </div>
+      
+</div>

@@ -1,0 +1,14 @@
+<!--Created an internal form for patient status instead of using _statform-->
+<!--I done this so that user details will populat the edit form otherwise it will act-->
+<!--like a new Patient Status-->
+<% provide(:title, 'Edit Patient Status') %>
+<% provide(:button_text, 'Edit Patient Status') %>
+<h1>Edit Patient Status</h1>
+
+    <%= simple_form_for([@patient, @stat]) do |f| %>
+    
+    <%= f.input :comment%>
+      
+      
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <% end %>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   # RESTful routes (CRUD- Ceate, Read, Update & Delete)
-  resources :patients
-  
+  # Nested route: putting stats (status's) resources in patients resources
+  resources :patients do
+    resources :stats
+  end
   resources :appointments
  
   # paths

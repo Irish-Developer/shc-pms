@@ -3,10 +3,13 @@
 
 $gray-medium-light: #eaeaea;
 
+/* I am using the same CSS box_sizing layout for design from https://github.com/RyanHemrick/Book-Review */
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px 6px #ccc;
+	padding: 1.5em 1.25em;
 }
 
 body {
@@ -74,9 +77,22 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
   margin-bottom: 5px;
+  color: black;
 }
 p2 {
   font-size: 1.1em;
+  line-height: 1.7em;
+  margin-bottom: 5px;
+}
+
+p3 {
+  font-size: 0.5em;
+  line-height: 1.7em;
+  margin-bottom: 5px;
+}
+
+p4 {
+  font-size: 0.7em;
   line-height: 1.7em;
   margin-bottom: 5px;
 }
@@ -237,4 +253,33 @@ input {
     padding: 10px;
     border: 2px solid #999;
     border-radius:2px;
+}
+
+.reviews {
+
+	@include box_sizing;
+	margin-top: 40px;
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 15px;
+		font-size: 2em;
+	}
+
+	.status {
+		border-bottom: 1px solid gainsboro;
+		margin-bottom: 15px;
+		padding-bottom: 10px;
+
+		.review-comment {
+			font-size: 1.05em;
+			line-height: 1.5;
+		}
+
+	}
+
+	.new-review {
+		padding-top: 8px;
+	}
+
 }

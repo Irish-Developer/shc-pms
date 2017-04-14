@@ -19,6 +19,8 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'simple_form', '~> 3.4'
 # Adding bootstrap files (sass)
 gem 'bootstrap-sass', '3.3.6'
+# This gem is used for displaying image
+# gem 'paperclip', '~> 5.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
