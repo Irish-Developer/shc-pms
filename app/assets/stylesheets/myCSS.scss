@@ -12,6 +12,11 @@ $gray-medium-light: #eaeaea;
 	padding: 1.5em 1.25em;
 }
 
+@mixin box_sizing1 {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
 body {
   padding-top: 60px;
 }
@@ -151,17 +156,17 @@ footer ul li {
   margin-left: 15px;
 }
 
-/* debug */
+/* debug - for development */
 
 .debug_dump {
   clear: both;
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box_sizing;
+  @include box_sizing1;
 }
 
-/* profile page */
+/* patient profile page */
 
 aside {
   section.user_info {
@@ -214,7 +219,7 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
-  @include box_sizing;
+  @include box_sizing1;
 }
 
 input {
@@ -255,7 +260,9 @@ input {
     border-radius:2px;
 }
 
-.reviews {
+// Patient Status Post
+
+.stats {
 
 	@include box_sizing;
 	margin-top: 40px;
@@ -271,15 +278,27 @@ input {
 		margin-bottom: 15px;
 		padding-bottom: 10px;
 
-		.review-comment {
+		.stat-comment {
 			font-size: 1.05em;
 			line-height: 1.5;
 		}
 
 	}
 
-	.new-review {
-		padding-top: 8px;
-	}
 
+}
+.btn-status {
+	color: darken( #008080, 5%);
+	background-color: #fff;
+	border: 1px solid darken( #008080, 5%);
+	padding: 7px;
+	
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: darken(#008080, 5%);
+		transition: 0.5s;
+		color: white;
+	}
 }

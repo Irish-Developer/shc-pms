@@ -24,14 +24,14 @@
     
     	    <div class="col-md-5">
     	  
-    	      <div class="reviews">
-    		
-    			    <h2>Patient Recient Status</h2>
-    			
-    		      	<%= render @patient.stats %>
-          			<div>
-          				<%= link_to "Add Patient Status Update", new_patient_stat_path(@patient),class: "btn-custom" %>
+    	      <div class="stats">
+    	        <div style="text-align:center">
+          				<%= link_to "Add Current Patient Status ", new_patient_stat_path(@patient), class: "btn-status" %>
           			</div>
+    		
+    			    <h2>Patient's Recient Status</h2>
+    			<!--This is where the the pation status posts will be displayed-->
+    		      	<%= render @patient.stats %>
           	</div>
           </div>
     </div>

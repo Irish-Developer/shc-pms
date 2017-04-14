@@ -28,8 +28,9 @@
           <h1>There are currently no patients in this condition.</h1>
         <%else%>
           <!--Display message if there are no patients under in this condition or else display patients-->
+          
           <% @patients.each do |patient| %>
-            <h3> <%= link_to patient.name, patient_path(patient) %> </h3>
+            <h3> <%= patient.id %> - <%= link_to patient.name, patient_path(patient) %> </h3>
         <% end %>
         </ul>
         

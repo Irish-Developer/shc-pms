@@ -1,7 +1,7 @@
 class StatsController < ApplicationController
     before_action :find_patient
-    before_action :find_stat, only: [:new, :edit, :update, :destroy]
-  
+    
+    
   def new
     @stat = Stat.new
   end
@@ -20,7 +20,6 @@ class StatsController < ApplicationController
   end
   
   def edit
-  #using find_stat params declared below
   end
   
   def update
@@ -44,6 +43,7 @@ class StatsController < ApplicationController
   def find_patient
     @patient = Patient.find(params[:patient_id])
   end
+  
   def find_stat
     @stat = Stat.find(params[:id])
   end

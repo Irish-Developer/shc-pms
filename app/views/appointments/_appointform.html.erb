@@ -12,7 +12,7 @@
       <%= f.date_field :date, :start_year=>1900 %>
       
       <%= f.label :msg, "Request" %>
-      <%= f.text_field :msg %>
+      <%= f.text_field :msg, class: 'form-control' %>
 
 
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
