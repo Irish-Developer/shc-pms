@@ -1,12 +1,14 @@
+
+<!--This is the patients status posts, it acts as a seperate page from patients but it is nested inside the patients page-->
 <div class="stat">
 
-      
+      <!--The doctors (users) details are added to the top of the post-->
         <p4>  Dr <%= stat.doctor.fname %> <%= stat.doctor.lname %>: <%= stat.doctor.email %></p4>
-        
+        <!--The patients status-->
         <p class="stat-comment"> <%= stat.comment %></p>
-        
+        <!--The time and date the post was made-->
         <p3> <%= stat.created_at %></p3>
-        
+          
           <div class="links btn-group">
       
               <!--Each patient status post has an edit and delete option-->

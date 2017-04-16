@@ -1,8 +1,12 @@
 <!--This html code is used to display the Doctors page-->
 <% provide(:title, 'All doctors') %>
 <h1>All Doctors</h1>
+
+
+
 <%= will_paginate %>
 <ul class="list_css">
+  
   <!--Get doctors-->
   <% @doctors.each do |doctor| %>
     <li>

@@ -21,16 +21,16 @@ gem 'simple_form', '~> 3.4'
 gem 'bootstrap-sass', '3.3.6'
 # This gem is used for displaying image
 # gem 'paperclip', '~> 5.1'
-# Use Puma as the app server
+# Use Puma as the app server- this is needed to sqlite3 on heroku
 gem 'puma', '~> 3.0'
+#Drpaer is used to create a decorator controller for the decorator design pattern
+gem 'draper', '3.0.0.pre1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
+#pre installed gems
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

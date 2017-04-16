@@ -10,7 +10,7 @@ class DoctorsController < ApplicationController
   
   #display doctor info
   def show
-    @doctor = Doctor.find(params[:id])
+    @doctor = Doctor.find(params[:id]).decorate
   end
   
   

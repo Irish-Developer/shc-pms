@@ -2,7 +2,13 @@ class AppointmentsController < ApplicationController
   before_action :find_appointment, only: [:show, :edit, :update, :destroy]
   
   def index
-    @appointments = Appointment.paginate(page: params[:page])
+    
+      @appointments = if params[:clinic]
+       Appointment.where('name LIKE ?', "%#{params[:clinic]}%")
+       else
+         @appointments = Appointment.all.order("created_at DESC")
+       end 
+       
       if params[:clinic].blank?                                 #If no clinic is selected 
       @appointments = Appointment.all.order("created_at DESC")  #then show all patients in order of time created
     else

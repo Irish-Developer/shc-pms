@@ -2,12 +2,14 @@ class PatientsController < ApplicationController
   before_action :find_patient, only: [:show, :edit, :update, :destroy]
   
   def index
-      @patients = Patient.paginate(page: params[:page])
+
       if params[:condition].blank?                      #If no pation condition is selected 
       @patients = Patient.all.order("created_at DESC")  #then show all patients in order of time created
+      @patients = Patient.paginate(page: params[:page])
     else
       @condition_id = Condition.find_by(name: params[:condition]).id                      #find the name of condition using its id
       @patients = Patient.where(:condition_id => @condition_id).order("created_at DESC")
+      @patients = Patient.paginate(page: params[:page])
       end
   end
   

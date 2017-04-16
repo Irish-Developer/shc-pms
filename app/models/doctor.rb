@@ -16,10 +16,14 @@ class Doctor < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
-  #digest method for use in fixtures
+  #digest method used to secure passwords being entered over a RESTful web service
   def Doctor.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+  
+  def self.search(query)
+    where("email like ?", "%#{query}%") 
   end
 end
