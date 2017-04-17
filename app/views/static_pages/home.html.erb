@@ -1,14 +1,15 @@
+<!--This is the Home page-->
 <div class="center jumbotron" style="background-image:hse.png; background-size: 100% 100%;">  
   <h1>Ireland SHC-PMS</h1>
     <h2>
-      This is my Cloud Application Development Project 
-      <a href="http://www.hse.ie/eng/">Ruby on Rails Tutorial</a> sample application
+      Ireland's Smart Health Care - Patient Monitoring System is easy and efficient way to monitor a patient's current condition and 
+      gives all doctors, hospitals and clinics one reliable place to work and communicate with each other from all conners of the Island and the world.
     </h2>
     
     <%= link_to "Register here!", signup_path, class: "btn btn-lg btn-success" %>
     
   </div>
-  
+  <!--HSE Logo-->
   <div style="text-align:center" target="_blank">
   <%= link_to image_tag("hse.png", alt: "Rails logo",target:"_blank"),
             'http://www.hse.ie/eng/' %>

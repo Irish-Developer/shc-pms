@@ -1,5 +1,6 @@
 <%= form_for(@appointment) do |f| %>
     <%= render 'error_message', object: @appointment %>
+      <!--This is the form appointments-->
       
       <!--Displays types of conditions in a dropdown-->
       <%= select_tag(:clinic_id, options_for_select(@clinics), :prompt => "Select Clinic")%>

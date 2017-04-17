@@ -1,24 +1,35 @@
 <!DOCTYPE html>
+<!--This is the main app layout -->
 <html>
   <head>
     <title>Ireland SHC-PMS</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!-- prevents cross-site request forgery (CSRF) -->
+    <!-- prevents cross-site request forgery (CSRF) -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    
+    <!--calls for the header layout (navbar)-->
     <%= render 'layouts/header' %>
     <div class="container">
       
-      <% flash.each do |message_type, message| %> <!--display the welcome message on the first page after the redirect-->
+      <!--display the welcome message on the first page after the redirect-->
+      <% flash.each do |message_type, message| %> 
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
     
-    <%= yield %> <!-- responsible for inserting the contents of each page into the layout-->
+    <!-- responsible for inserting the contents of each page into the layout-->
+    <%= yield %> 
+    
+    <!--calls for the footer layout-->
     <%= render 'layouts/footer' %>
-    <%= debug(params) if Rails.env.development? %>
+    
+    <!--The below code displays a debugging window on the app-->
+    <!--This should only be used during development and commented out when completed-->
+    <!--<%= debug(params) if Rails.env.development? %>-->
     </div>
   </body>
 </html>

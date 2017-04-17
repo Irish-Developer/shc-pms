@@ -1,12 +1,16 @@
+<!--This is the Register page-->
 <% provide(:title, 'Register') %>
 <% provide(:button_text, 'Create my account') %>
 <h1>Register Here</h1>
-<p>Origanly doctors would be given login details to their accounts which were already made by staff
-to prevent anyone without autherisation access</p>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'form' %> <!-- pulls the _form.html -->
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <p>Origanly doctors would not be able to just register, they would be given login details to their accounts 
+            which were made by staff to prevent anyone without autherisation to create an account.</p>
+              <div class="center jumbotron" style="background-image:hse.png; background-size: 100% 100%;"> 
+                <%= render 'form' %> <!-- pulls the _form.html -->
+              </div>
+      </div>
   </div>
-</div>
 

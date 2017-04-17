@@ -1,7 +1,9 @@
-
+<!--Patients profile with a nested view (Stats) to display status posts-->
     <h5> <%= @patient.name %></h5>
     <div class="row">
     	<div class="col-md-7">
+    	  
+    	  <!--Patients details-->
           <h3> Date of Birth: <font size="4" color="green"><%= @patient.dob %></h3>
             
           <h3>Address: <font size="4" color="green"><%= @patient.address1 %> <%= @patient.address2 %></font></h3>
@@ -15,6 +17,7 @@
           <h3> Current Condition: <font margin-left="20px" size="4" color="green"><%= @patient.condition.name %></font</h3>
     
         <br></br>
+        <!--Links to edit, delet, make appointment or go back-->
           <%= link_to "Back", patients_url, class: "btn btn-info"%> |
           <%= link_to "Edit", edit_patient_path(@patient), class: "btn btn-warning" %> |
           <%= link_to "Delete", patient_path(@patient), method: :delete, data: {confirm: "Are you sure?"},class: "btn btn-danger"%> |
@@ -26,6 +29,8 @@
     	  
     	      <div class="stats">
     	        <div style="text-align:center">
+    	          
+    	          <!--Create a new status post-->
           				<%= link_to "Add Current Patient Status ", new_patient_stat_path(@patient), class: "btn-status" %>
           			</div>
     		

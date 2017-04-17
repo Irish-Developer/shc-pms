@@ -4,11 +4,14 @@
 <%= link_to "Make an Appointment", new_appointment_path,class: "btn btn-success" %>
       <br></br>
 
+      <!--Search function-->
+      <!--reference: https://rubyplus.com/episodes/291-Simple-Search-Form-in-Rails-5 -->
       <%= form_tag(appointments_path, method: :get) do %>
         <%= text_field_tag :clinic %>
         <%= submit_tag 'Search' %>
       <% end %>
-
+      
+      <!--Dropdown list of clinics which are preinstalled in db/seed-->
       <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
            role="button">Select Clinic <span class="caret"></span></a>
@@ -20,6 +23,8 @@
                 <% end%>
               </ul>
       </li>
+      
+      <!--View all appointments link-->
       <li><%= link_to "All Appointments", appointments_path %></li>
       <br>
       
@@ -31,6 +36,7 @@
           <h1>There are currently no appointments made for this clinic.</h1>
         <%else%>
           
+          <!--Display appointments in a tabe with links-->
           <table class="table">
               <tr>
                 <th>ID</th>
