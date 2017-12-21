@@ -14,6 +14,25 @@ Doctor.create!(fname:  "Youcef", lname: "O'Connor",
               password: password, password_confirmation: password)
 end
 
+#Here is were fake or mock data is nerated for 99 patients 
+# 99.times do |n|
+#   name  = Faker::Name.name
+#   dob = "1998-09-12"
+#   address1 = Faker::Address.street_address
+#   address2 = Faker::Address.city
+#   condition_id = Faker::Number.between(1, 70)
+#   phone = "1234567899"
+#   doctor_id = Faker::Number.between(1, 70)
+#   Patient.create!(name:  name,
+#               dob: dob,
+#               address1: address1,
+#               address2: address2,
+#               phone: phone,
+#               condition_id: condition_id,
+#               doctor_id: doctor_id)
+# end
+
+
 # #  prefixed patient condition types --------------------------
 Condition.create!(name:"Dislocated Joint")
 Condition.create!(name:"Brain injury")
